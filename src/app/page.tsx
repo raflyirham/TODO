@@ -144,17 +144,50 @@ export default function Home() {
     }
   }
 
+  function deleteTaskIncomplete(id: number) {
+    for (let i = 0; i < incomplete.length; i++) {
+      if (incomplete[i].id === id) {
+        const temp = [...incomplete];
+        temp.splice(i, 1);
+        setIncomplete(temp);
+        break;
+      }
+    }
+  }
+
+  function deleteTaskOngoing(id: number) {
+    for (let i = 0; i < ongoing.length; i++) {
+      if (ongoing[i].id === id) {
+        const temp = [...ongoing];
+        temp.splice(i, 1);
+        setOngoing(temp);
+        break;
+      }
+    }
+  }
+
+  function deleteTaskCompleted(id: number) {
+    for (let i = 0; i < completed.length; i++) {
+      if (completed[i].id === id) {
+        const temp = [...completed];
+        temp.splice(i, 1);
+        setCompleted(temp);
+        break;
+      }
+    }
+  }
+
   return (
     <main className="flex flex-col">
-      <section className="flex flex-col justify-center items-center px-5 min-h-[50vh] bg-[#e3f6f5]">
+      <section className="flex flex-col justify-center items-center px-5 min-h-[50vh] bg-[#e3f6f5] ">
         <h1 className="font-bold text-5xl text-[#272343]">TODO</h1>
         <p className="font-normal text-lg text-[#2d334a]">
           List all your activities!
         </p>
       </section>
 
-      <section className="mt-[-5vh]">
-        <div className="flex flex-row justify-center px-3 gap-x-3">
+      <section className="mt-[-5vh] ">
+        <div className="flex flex-row justify-center px-3 gap-x-3 max-sm:flex-col max-sm:gap-y-3 max-sm:gap-x-0 max-md:flex-col max-md:gap-y-3 max-lg:flex-col max-lg:gap-y-3">
           <div className="flex flex-col bg-[#fffffe] border-[#272343] border-[1px] px-5 py-4 rounded">
             <h2 className="font-bold text-[#272343]">Activity Name:</h2>
             <input
@@ -226,6 +259,7 @@ export default function Home() {
                   description={incomplete[todo].description}
                   status={incomplete[todo].status}
                   onChange={handleChangeIncomplete}
+                  onClick={deleteTaskIncomplete}
                 />
               ))
             )}
@@ -249,6 +283,7 @@ export default function Home() {
                   description={ongoing[todo].description}
                   status={ongoing[todo].status}
                   onChange={handleChangeOngoing}
+                  onClick={deleteTaskOngoing}
                 />
               ))
             )}
@@ -272,6 +307,7 @@ export default function Home() {
                   description={completed[todo].description}
                   status={completed[todo].status}
                   onChange={handleChangeCompleted}
+                  onClick={deleteTaskCompleted}
                 />
               ))
             )}
