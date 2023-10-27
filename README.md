@@ -4,7 +4,7 @@
 TODO is a basic to-do-list application that enables user to list their activity.
 
 ## Live Preview
-None
+https://todoapp-id.vercel.app/
 
 ## Run Locally
 
@@ -49,5 +49,5 @@ Start the server
 
 ## Todo
 
-- [ ] Add Responsivity
+- [x] Add Responsivity
 - [ ] Add Local Storage Feature
